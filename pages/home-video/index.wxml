@@ -1,2 +1,5 @@
-
-
+<block wx:for="{{topMvs}}" wx:key="id">
+  <view class="" hover-class="none" hover-stop-propagation="false">
+    {{item.name}}
+  </view>
+</block>
