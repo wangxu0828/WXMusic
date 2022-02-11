@@ -1,12 +1,13 @@
 {
   "pages": [
     "pages/home-music/index",
-    "pages/home-video/index"
+    "pages/home-video/index",
+    "pages/video-detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "WXMusic",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

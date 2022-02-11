@@ -1,0 +1,11 @@
+<wxs src="../../utils/format.wxs" module="format"></wxs>
+<view class="item">
+  <view class="cover">
+    <image class="image" src="{{item.coverUrl}}" mode="widthFix"></image>
+    <view class="palyCount">{{format.formatPlayCount(item.playTime)}}</view>
+  </view>
+  <view class="info">
+    <view class="title">{{item.title}}</view>
+    <view class="userName">{{item.creator[0].userName}}</view>
+  </view>
+</view>

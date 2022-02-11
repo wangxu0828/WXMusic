@@ -4,37 +4,51 @@ const pageOptions = {
   // 页面数据
   data: {
     topMvs: [],
+    hasMore: true,
+  },
+
+  getTopMvData: async function (offset) {
+    if (!this.data.hasMore) return
+    // 展示加载动画
+    wx.showNavigationBarLoading()
+    const res = await getTopMvs(offset)
+    let newData = res.data
+
+    if (offset === 0) {
+      newData = newData
+    } else {
+      newData = [...this.data.topMvs, ...newData]
+    }
+    this.setData({
+      topMvs: newData,
+      hasMore: res.hasMore,
+    })
+    wx.hideNavigationBarLoading()
+    if (offset === 0) {
+      wx.stopPullDownRefresh()
+    }
   },
   // 页面载入时
-  onLoad() {
-    // wxRequest
-    //   .request('/top/mv', 'GET', {
-    //     offset: 0,
-    //     limit: 10,
-    //   })
-    //   .then((res) => {
-    //     this.setData({
-    //       topMvs: res.data.data,
-    //     })
-    //   })
-    // wx.request({
-    //   url: 'http://123.207.32.32:9001/top/mv',
-    //   data: {
-    //     offset: 0,
-    //     limit: 10,
-    //   },
-    //   success: (res) => {
-    //     console.log(res.data.data)
-    //     this.setData({
-    //       topMvs: res.data.data,
-    //     })
-    //   },
-    //   fail: function () {},
-    // })
-    getTopMvs(0).then((res) => {
-      this.setData({
-        topMvs: res.data.data,
-      })
+  onLoad: function () {
+    this.getTopMvData(0)
+  },
+
+  // 滑动触底时
+  onReachBottom: async function () {
+    this.getTopMvData(this.data.topMvs.length)
+  },
+
+  // 上拉刷新时
+  onPullDownRefresh: async function () {
+    this.getTopMvData(0)
+  },
+
+  // 点击视频跳转
+  handleVideoItemClick: function (e) {
+    const id = e.currentTarget.dataset.id
+
+    wx.navigateTo({
+      url: '/pages/video-detail/index?id=' + id,
     })
   },
 }

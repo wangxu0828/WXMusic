@@ -1,0 +1,30 @@
+function formatPlayCount(count) {
+  var count = parseInt(count)
+  if (count > 100000000) {
+    return (count / 100000000).toFixed(1) + '亿'
+  } else if (count > 10000) {
+    return (count / 10000).toFixed(1) + '万'
+  } else {
+    return count
+  }
+}
+
+function addZero(num) {
+  var length = (num+'').length
+  var num = '00' + num
+  return num.slice(length)
+}
+
+function formatTime(time) {
+  var time = parseInt(time/1000)
+
+  var minute = Math.floor(time / 60)
+  var second = Math.floor(time % 60)
+
+  return addZero(minute)+'分'+addZero(second)+'秒'
+}
+
+module.exports = {
+  formatPlayCount: formatPlayCount,
+  formatTime:formatTime
+}

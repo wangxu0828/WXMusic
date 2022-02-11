@@ -6,7 +6,7 @@
   "setting": {
     "urlCheck": false,
     "es6": true,
-    "enhance": false,
+    "enhance": true,
     "postcss": true,
     "preloadBackgroundData": false,
     "minified": true,
@@ -18,7 +18,7 @@
     "scopeDataCheck": false,
     "uglifyFileName": false,
     "checkInvalidKey": true,
-    "checkSiteMap": true,
+    "checkSiteMap": false,
     "uploadWithSourceMap": true,
     "compileHotReLoad": false,
     "useMultiFrameRuntime": true,
@@ -40,7 +40,7 @@
     "minifyWXSS": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.22.0",
+  "libVersion": "2.14.1",
   "appid": "wx377d043c3a0bc432",
   "projectname": "WXMusic",
   "debugOptions": {
@@ -64,6 +64,12 @@
           "name": "pages/home-video/index",
           "pathName": "pages/home-video/index",
           "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/video-detail/index",
+          "pathName": "pages/video-detail/index",
+          "query": "id=14493007",
           "scene": null
         }
       ]

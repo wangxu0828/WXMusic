@@ -1,0 +1,19 @@
+<wxs src="../../utils/format.wxs" module="format"></wxs>
+<view class="video-item" hover-class="none" hover-stop-propagation="false">
+  <video class="video" src="{{videoData.url}}"></video>
+  <view class="detail">
+    <view class="name">{{videoDetail.name}}</view>
+    <view class="artistName">{{videoDetail.artistName}}</view>
+    <view class="countTime">
+      {{format.formatPlayCount(videoDetail.playCount)}}次播放 - {{videoDetail.publishTime}}
+    </view>
+  </view>
+  <view class="allVideo">
+    <view class="title">推荐视频</view>
+    <block wx:for="{{allVideo}}" wx:key="vid">
+      <view>
+        <recommend-video-item item="{{item}}" bind:tap="handleRecommendVideoClick" data-id="{{item.creator[0].userId}}"></recommend-video-item>
+      </view>
+    </block>
+  </view>
+</view>

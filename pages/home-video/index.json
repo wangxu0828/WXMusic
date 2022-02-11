@@ -1,8 +1,11 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "video",
   "navigationStyle": "default",
-  "enablePullDownRefresh": false,
+  "backgroundTextStyle":"dark",
+  "enablePullDownRefresh": true,
   "onReachBottomDistance": 50,
   "disableScroll": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "video-item":"../../component/video-item/index"
+  }
 }

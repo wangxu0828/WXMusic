@@ -1,0 +1,9 @@
+.video {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.video-item {
+  width: 48%;
+}

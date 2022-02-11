@@ -1,0 +1,36 @@
+page {
+  padding-top: 225px;
+}
+
+.video {
+  width: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.detail {
+  padding: 20rpx;
+}
+
+.detail .name {
+  font-size: 30rpx;
+  font-weight: 600;
+}
+
+.detail .artistName {
+  font-size: 20rpx;
+  padding: 10rpx 0;
+}
+
+.detail .countTime {
+  font-size: 20rpx;
+}
+
+.allVideo {
+  padding: 20rpx;
+}
+
+.allVideo .title {
+ font-size: 29rpx;
+ font-weight: 600;
+}

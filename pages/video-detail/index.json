@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "WXMusic",
+  "navigationStyle": "default",
+  "enablePullDownRefresh": false,
+  "onReachBottomDistance": 50,
+  "disableScroll": false,
+  "usingComponents": {
+    "recommend-video-item":"../../component/recommend-video-item/index"
+  }
+}
