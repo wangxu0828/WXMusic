@@ -1,0 +1,15 @@
+.van-cell {
+  background-color: #fff !important
+}
+
+.swiper {
+  width: 100%;
+}
+
+.swiper-item {
+  display: flex;
+}
+
+.swiper-item .image-item {
+  width: 100%;
+}

@@ -1,0 +1,23 @@
+{
+  "name": "wxmusic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangxu0828/WXMusic.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wangxu0828/WXMusic/issues"
+  },
+  "homepage": "https://github.com/wangxu0828/WXMusic#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.10.2"
+  }
+}

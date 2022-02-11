@@ -2,11 +2,12 @@
   "pages": [
     "pages/home-music/index",
     "pages/home-video/index",
-    "pages/video-detail/index"
+    "pages/video-detail/index",
+    "pages/search-detail/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#fafafa",
     "navigationBarTitleText": "WXMusic",
     "navigationBarTextStyle": "black"
   },
