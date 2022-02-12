@@ -1,10 +1,13 @@
 import { getBannerList } from '../../service/music_api.js'
 import throttle from '../../utils/throttle'
+
+import { musicRankingStore } from '../../store/index.js' 
 const pageOptions = {
   // 页面数据
   data: {
     banners: [],
     swiperHeight: 0,
+    musicRankingListTopSix:[]
   },
   // 页面载入时
   onLoad: function () {
@@ -21,6 +24,15 @@ const pageOptions = {
     getBannerList().then((res) => {
       this.setData({
         banners: res.banners,
+      })
+    })
+
+    musicRankingStore.dispatch('getMusicRankingAction')
+    musicRankingStore.onState('musicRanking', (res) => {
+      if(!res.tracks) return
+      const musicRankingListTopSix =  res.tracks.slice(0,6)
+      this.setData({
+        musicRankingListTopSix:musicRankingListTopSix
       })
     })
   },

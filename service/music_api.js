@@ -8,3 +8,13 @@ export const getBannerList = () => {
     type: 2,
   })
 }
+
+/**
+ * 获取推荐歌曲
+ * @param {*} idx 
+ */
+export const getMusicRanking = (idx) => {
+  return wxRequest.get('/top/list', {
+    idx
+  })
+}

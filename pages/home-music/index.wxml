@@ -12,4 +12,7 @@
 <!-- 推荐音乐 -->
 <view class="more-music">
   <area-header title="推荐歌曲"></area-header>
+  <block wx:for="{{musicRankingListTopSix}}" wx:key="id">
+    <music-item-v1 item="{{item}}"></music-item-v1>
+  </block>
 </view>

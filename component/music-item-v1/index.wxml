@@ -1,0 +1,10 @@
+<view class="music-item-v1">
+  <image class="image" src="{{item.al.picUrl}}"></image>
+  <view class="introduction">
+    <view class="name">{{item.name}}</view>
+    <view class="album">{{item.ar[0].name}} · {{item.al.name}}</view>
+  </view>
+  <view class="arrow-box">
+    <image class="arrow" src="../../assets/images/icons/arrow-right.png" ></image>
+  </view>
+</view>

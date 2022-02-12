@@ -1,0 +1,39 @@
+/* component/music-item-v1/index.wxss */
+.music-item-v1 {
+  display: flex;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+
+.music-item-v1 .image {
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 20rpx;
+  margin-right: 30rpx;
+}
+
+.music-item-v1 .introduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.music-item-v1 .introduction .name {
+  font-size: 35rpx;
+}
+
+.music-item-v1 .introduction .album {
+  color: #555;
+  font-size: 30rpx;
+}
+
+.music-item-v1 .arrow-box {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.music-item-v1 .arrow {
+  width: 50rpx;
+  height: 50rpx;
+}

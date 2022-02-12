@@ -5,7 +5,8 @@
   "onReachBottomDistance": 50,
   "disableScroll": false,
   "usingComponents": {
+    "area-header": "../../component/area-header/index",
     "van-search": "@vant/weapp/search/index",
-    "area-header": "../../component/area-header/index"
+    "music-item-v1" : "../../component/music-item-v1/index"
   }
 }
