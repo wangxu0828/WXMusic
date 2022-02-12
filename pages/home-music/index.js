@@ -1,5 +1,5 @@
 import { getBannerList } from '../../service/music_api.js'
-
+import throttle from '../../utils/throttle'
 const pageOptions = {
   // 页面数据
   data: {
@@ -24,6 +24,21 @@ const pageOptions = {
       })
     })
   },
+  handleImageLoad: function(e) {
+      const throttleGetImageHeader = throttle(this.getImageHeader)
+      throttleGetImageHeader().then(res =>{
+        this.setData({
+          swiperHeight:res[0].height
+        })
+      })
+  },
+  getImageHeader: function() {
+    return new Promise((resolve, reject) => {
+      const query = wx.createSelectorQuery()
+      query.select('.image-item').boundingClientRect()
+      query.exec(resolve)
+    })
+  }
 }
 
 Page(pageOptions)

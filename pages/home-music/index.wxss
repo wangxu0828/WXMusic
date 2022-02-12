@@ -1,14 +1,28 @@
-.van-cell {
-  background-color: #fff !important
+page {
+  padding: 20rpx;
+
+}
+
+
+.van-search {
+  box-sizing: border-box;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+.van-search__content {
+  background-color: #fff !important;
+  padding-left: 0px !important;
 }
 
 .swiper {
   width: 100%;
+  border-radius:30rpx;
+  overflow: hidden;
+  transform: translateY(0);
 }
 
-.swiper-item {
-  display: flex;
-}
+.swiper-item {}
 
 .swiper-item .image-item {
   width: 100%;

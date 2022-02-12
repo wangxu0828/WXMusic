@@ -1,0 +1,15 @@
+<view class="area-header">
+  <view class="left">
+    {{title}}
+  </view>
+
+  <view class="right">
+    <view class="slot">
+      <slot></slot>
+    </view>
+    <view class="default">
+      <view class="more">更多</view>
+      <image src="../../assets/images/icons/arrow-right.png" alt="" class="icon" mode="widthFix"/>
+    </view>
+  </view>
+</view>

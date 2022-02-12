@@ -1,10 +1,15 @@
 <!-- 输入框 -->
 <van-search background="#fafafa" shape="round" placeholder="请输入喜欢的音乐" bind:click-input="handleSearchClick" disabled />
 <!-- 轮播图 -->
-<swiper class="swiper" indicator-dots style="height: {{swiperHeight}}px;">
+<swiper class="swiper" indicator-dots style="height: {{swiperHeight}}px;" autoplay="{{ true}}" circular="{{true}}">
   <block wx:for="{{banners}}" wx:key="bannerId">
     <swiper-item class="swiper-item">
-      <image class="image-item" src="{{item.pic}}" mode="widthFix" />
+      <image class="image-item" src="{{item.pic}}" mode="widthFix" bindload="handleImageLoad" />
     </swiper-item>
   </block>
 </swiper>
+
+<!-- 推荐音乐 -->
+<view class="more-music">
+  <area-header title="推荐歌曲"></area-header>
+</view>

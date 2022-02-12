@@ -1,0 +1,27 @@
+/* pages/area-header/index.wxss */
+.area-header {
+  height: 60rpx;
+  padding: 20rpx 0;
+  display: flex;
+  justify-content: space-between;
+  line-height: 60rpx;
+}
+
+.area-header .left {
+  font-size: 40rpx;
+  font-weight: 600;
+}
+
+.slot:empty + .default {
+  display: flex;
+}
+
+.default {
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.right .default .icon {
+  width: 50rpx;
+}

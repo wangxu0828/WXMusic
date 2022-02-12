@@ -1,6 +1,6 @@
 <wxs src="../../utils/format.wxs" module="format"></wxs>
 <view class="video-item" hover-class="none" hover-stop-propagation="false">
-  <video class="video" src="{{videoData.url}}"></video>
+  <video class="video" src="{{videoData.url}}" referrer-policy="origin"></video>
   <view class="detail">
     <view class="name">{{videoDetail.name}}</view>
     <view class="artistName">{{videoDetail.artistName}}</view>
