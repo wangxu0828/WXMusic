@@ -8,6 +8,10 @@ Component({
       type: String,
       value: '推荐歌曲',
     },
+    showRight: {
+      type:Boolean,
+      value:'true'
+    }
   },
 
   /**

@@ -7,6 +7,8 @@
   "usingComponents": {
     "area-header": "../../component/area-header/index",
     "van-search": "@vant/weapp/search/index",
-    "music-item-v1" : "../../component/music-item-v1/index"
+    "music-item-v1" : "../../component/music-item-v1/index",
+    "song-menu":"../../component/song-menu-area/index",
+    "ranking-area-item": "../../component/ranking-area-item/index"
   }
 }

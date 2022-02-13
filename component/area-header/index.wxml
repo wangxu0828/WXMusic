@@ -3,7 +3,7 @@
     {{title}}
   </view>
 
-  <view class="right">
+  <view class="right" wx:if="{{showRight}}">
     <view class="slot">
       <slot></slot>
     </view>

@@ -1,0 +1,6 @@
+<view class="song-menu-item">
+  <image class="image" src="{{item.coverImgUrl}}" mode="widthFix"></image>
+  <view class="introdution">
+    {{item.name}}
+  </view>
+</view>

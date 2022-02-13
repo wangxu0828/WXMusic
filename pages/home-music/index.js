@@ -7,7 +7,10 @@ const pageOptions = {
   data: {
     banners: [],
     swiperHeight: 0,
-    musicRankingListTopSix:[]
+    musicRankingListTopSix:[],
+    musicHotMenuListTopSix:[],
+    musicRecommandMenuListTopSix:[],
+    rankingMusic:{0:{}, 2:{}, 3:{}}
   },
   // 页面载入时
   onLoad: function () {
@@ -26,16 +29,43 @@ const pageOptions = {
         banners: res.banners,
       })
     })
-
-    musicRankingStore.dispatch('getMusicRankingAction')
-    musicRankingStore.onState('musicRanking', (res) => {
+    
+    // 获取推荐歌曲列表歌曲
+    for(let i = 0; i < 4; i++) {
+      musicRankingStore.dispatch('getMusicRankingAction', i)
+    }
+    musicRankingStore.onState('musicHotRanking', (res) => {
       if(!res.tracks) return
       const musicRankingListTopSix =  res.tracks.slice(0,6)
       this.setData({
         musicRankingListTopSix:musicRankingListTopSix
       })
     })
+    // 获取热门歌单列表
+    musicRankingStore.dispatch('getMusicHotMenuListAction')
+    musicRankingStore.onState('musicHotMenuList', (res) => {
+      if(res.length === 0) return
+      const musicRankingListTopSix =  res.slice(0,6)
+      this.setData({
+        musicHotMenuListTopSix:musicRankingListTopSix
+      })
+    })
+    // 获取推荐歌单列表
+    musicRankingStore.dispatch('getMusicRecommandMenuListAction')
+    musicRankingStore.onState('musicRecommandMenuList', (res) => {
+      if(res.length === 0) return
+      const musicRankingListTopSix =  res.slice(0,6)
+      this.setData({
+        musicRecommandMenuListTopSix:musicRankingListTopSix
+      })
+    })
+
+    // 获取歌曲排行
+    musicRankingStore.onState('musicUpRanking', this.handleRanking(0))
+    musicRankingStore.onState('musicNewRanking', this.handleRanking(2))
+    musicRankingStore.onState('musicOriginRanking', this.handleRanking(3))
   },
+ 
   handleImageLoad: function(e) {
       const throttleGetImageHeader = throttle(this.getImageHeader)
       throttleGetImageHeader().then(res =>{
@@ -50,7 +80,25 @@ const pageOptions = {
       query.select('.image-item').boundingClientRect()
       query.exec(resolve)
     })
-  }
+  },
+  handleRanking(idx) {
+    return (res) => {
+      if(Object.keys(res).length === 0) return
+      const name = res.name
+      const coverImgUrl = res.coverImgUrl
+      const playCount = res.playCount
+      const musicList = res.tracks.slice(0, 3)
+      const id = res.id
+
+      const rankObj = {id, name, coverImgUrl, playCount, musicList}
+
+      const newRanking = {...this.data.rankingMusic, [idx]:rankObj}
+      this.setData({
+        rankingMusic: newRanking
+      })
+      console.log(this.data.rankingMusic);
+    }
+  },
 }
 
 Page(pageOptions)

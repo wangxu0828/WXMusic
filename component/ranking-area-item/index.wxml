@@ -1,0 +1,16 @@
+<wxs src="../../utils/format.wxs" module="format"></wxs>
+<!--component/ranking-area-item/index.wxml-->
+<view class="ranking-area-item">
+ <view class="left">
+  <view class="name">{{item.name}}</view>
+  <block wx:for="{{item.musicList}}" wx:key="id">
+    <view class="content">
+      {{index+1}}.{{item.name}} - {{item.ar[0].name}}
+    </view>
+  </block>
+ </view>
+ <view class="right">
+  <image class="image" src="{{item.coverImgUrl}}" mode="widthFix"></image>
+  <view class="play-count">{{format.formatPlayCount(item.playCount)}}</view>
+ </view>
+</view>

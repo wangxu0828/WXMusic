@@ -1,0 +1,10 @@
+<view class="header">
+    <area-header title="{{title}}"></area-header>
+  </view>
+<view class="song-menu" style="width : {{screenWidth}}px">
+    <scroll-view scroll-x class="content">
+      <block wx:for="{{item}}" wx:key="id">
+        <song-menu-item item="{{item}}" class="song-menu-item"></song-menu-item>
+      </block>
+    </scroll-view>
+</view>
