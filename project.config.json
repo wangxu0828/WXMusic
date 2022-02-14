@@ -73,6 +73,12 @@
           "pathName": "pages/video-detail/index",
           "query": "id=14493007",
           "scene": null
+        },
+        {
+          "name": "pages/detail-songs-list/index",
+          "pathName": "pages/detail-songs-list/index",
+          "query": "id=14493007",
+          "scene": null
         }
       ]
     }

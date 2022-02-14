@@ -1,1 +1,1 @@
-export { musicRankingStore } from './music-ranking'
+export { musicRankingStore, rankingMusic } from './music-ranking'

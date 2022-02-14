@@ -10,21 +10,21 @@
 </swiper>
 
 <!-- 推荐音乐 -->
-<!-- <view class="more-music">
-  <area-header title="推荐歌曲"></area-header>
+<view class="more-music" wx:if="{{musicRankingListTopSix.length>0}}">
+  <area-header title="推荐歌曲" bind:tap="handleClickGoSongList" data-type="ranking" data-value="1"></area-header>
   <block wx:for="{{musicRankingListTopSix}}" wx:key="id">
     <music-item-v1 item="{{item}}"></music-item-v1>
   </block>
-</view> -->
+</view>
 <!-- 热门歌单 -->
-<!-- <song-menu item="{{musicHotMenuListTopSix}}" title="热门歌单"></song-menu> -->
+<song-menu item="{{musicHotMenuListTopSix}}" title="热门歌单" wx:if="{{musicHotMenuListTopSix.length>0}}" bind:handleClickGoSongList="handleClickGoSongList" data-type="menu"></song-menu>
 <!-- 推荐歌单 -->
-<!-- <song-menu item="{{musicRecommandMenuListTopSix}}" title="推荐歌单"></song-menu> -->
+<song-menu item="{{musicRecommandMenuListTopSix}}" title="推荐歌单" wx:if="{{musicRecommandMenuListTopSix.length>0}}" bind:handleClickGoSongList="handleClickGoSongList" data-type="menu"></song-menu>
 
 <!-- 巅峰榜 -->
 <view class="ranking">
   <area-header title="巅峰榜" showRight="{{false}}"></area-header>
   <block wx:for="{{rankingMusic}}" wx:key="name">
-    <ranking-area-item item="{{item}}"></ranking-area-item>
+    <ranking-area-item item="{{item}}" bind:tap="handleClickGoSongList" data-type="ranking" data-value="{{index}}"></ranking-area-item>
   </block>
 </view>

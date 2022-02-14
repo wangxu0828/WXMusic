@@ -34,5 +34,6 @@ const musicRankingStore = new HYEventStore({
 })
 
 export {
-  musicRankingStore
+  musicRankingStore,
+  rankingMusic
 }

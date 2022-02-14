@@ -8,7 +8,7 @@
       <slot></slot>
     </view>
     <view class="default">
-      <view class="more">更多</view>
+      <view class="more" bind:tap="handleMoreClick">更多</view>
       <image src="../../assets/images/icons/arrow-right.png" alt="" class="icon" mode="widthFix"/>
     </view>
   </view>

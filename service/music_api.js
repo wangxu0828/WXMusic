@@ -33,3 +33,13 @@ export const getMusicMenuList = (cat="全部", limit=50, offset=0) => {
     offset
   })
 }
+
+/**
+ * 获取歌单详情数据
+ * @param {*} id 
+ */
+export const getSongMenu = (id) => {
+  return wxRequest.get('/playlist/detail/dynamic', {
+    id
+  })
+}

@@ -25,7 +25,10 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    handleClickGoSongList: function(event) {
+      const id = event.currentTarget.dataset.value.id
+      this.triggerEvent("handleClickGoSongList", {id})
+    }
   },
   lifetimes: {
     attached: function() {

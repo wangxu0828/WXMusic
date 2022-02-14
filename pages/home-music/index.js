@@ -1,7 +1,8 @@
 import { getBannerList } from '../../service/music_api.js'
 import throttle from '../../utils/throttle'
 
-import { musicRankingStore } from '../../store/index.js' 
+import { musicRankingStore, rankingMusic } from '../../store/index.js' 
+
 const pageOptions = {
   // 页面数据
   data: {
@@ -96,7 +97,21 @@ const pageOptions = {
       this.setData({
         rankingMusic: newRanking
       })
-      console.log(this.data.rankingMusic);
+    }
+  },
+
+  handleClickGoSongList:function(e) {
+    const type = e.currentTarget.dataset.type
+    if (type === "menu") {
+      const id = e.detail.id
+      wx.navigateTo({
+        url: `/pages/detail-songs-list/index?type=${type}&id=${id}`,
+      })
+    }else if (type === "ranking"){
+      const rankMap = e.currentTarget.dataset.value
+      wx.navigateTo({
+        url: `/pages/detail-songs-list/index?type=${type}&categoty=${rankingMusic[rankMap]}`,
+      })
     }
   },
 }

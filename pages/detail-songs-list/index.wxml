@@ -1,0 +1,4 @@
+<!-- 名字,rank独有 -->
+<view class="name"> 
+  <area-header title="{{songListInfo.name}}" showRight="{{false}}"></area-header>
+</view>
