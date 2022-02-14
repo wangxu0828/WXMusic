@@ -1,0 +1,43 @@
+{
+  "setting": {},
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "name": "pages/home-video/index",
+          "pathName": "pages/home-video/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/video-detail/index",
+          "pathName": "pages/video-detail/index",
+          "query": "id=14493007",
+          "scene": null
+        },
+        {
+          "name": "pages/detail-songs-list/index",
+          "pathName": "pages/detail-songs-list/index",
+          "query": "id=14493007",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/detail-songs-list/index",
+          "query": "type=ranking&categoty=musicUpRanking",
+          "scene": null,
+          "launchMode": "default"
+        }
+      ]
+    }
+  }
+}

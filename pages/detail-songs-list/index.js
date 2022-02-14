@@ -45,8 +45,8 @@ Page({
   },
 
   getPageData: function(res) {
-      this.setData({
-        songListInfo:res
-      })
+    this.setData({
+      songListInfo:res
+    })
   }
 })

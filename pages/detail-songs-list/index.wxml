@@ -1,4 +1,31 @@
 <!-- 名字,rank独有 -->
-<view class="name"> 
+<view class="name" wx:if="{{!songMenuId}}"> 
   <area-header title="{{songListInfo.name}}" showRight="{{false}}"></area-header>
+</view>
+
+<!-- 歌单封面, 歌单独有 -->
+<view class="song-menu-cover" wx:if="{{!!songMenuId}}">
+  <image class="cover" src="{{songListInfo.coverImgUrl}}" mode="aspectFill"></image>
+  <view class="content">
+    <view class="top">
+      <image class="avater-cover" src="{{songListInfo.coverImgUrl}}" mode="widthFix"></image>
+      <view class="introdution">
+        <view class="name">{{songListInfo.name}}</view>
+        <view class="article">
+          <image class="avatar" src="{{songListInfo.creator.avatarUrl}}"></image>
+          <text class="ar_name">{{songListInfo.creator.nickname}}</text>
+        </view>
+        <view class="description">
+          {{songListInfo.description}}
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- content -->
+<view>
+  <block wx:for="{{songListInfo.tracks}}" wx:key="id">
+    <music-item-v2 item="{{item}}" index="{{index+1}}"></music-item-v2>
+  </block>
 </view>

@@ -1,1 +1,79 @@
 /* pages/detail-songs-list/index.wxss */
+.name {
+  margin-bottom: 20rpx;
+}
+
+.song-menu-cover {
+  width: 750rpx;
+  position: relative;
+  left: -20rpx;
+  height: 500rpx;
+  margin-bottom: 40rpx;
+  overflow: hidden;
+  color: #fff;
+}
+
+.song-menu-cover .cover {
+  width: 100%;
+  height: 100% !important;
+  filter: blur(10px);
+}
+
+.song-menu-cover .content {
+  position: absolute;
+  top: 50rpx;
+  left: 50rpx;
+}
+
+.song-menu-cover .content .top {
+  display: flex;
+}
+
+
+
+.song-menu-cover .content .avater-cover {
+  width: 240rpx;
+  height: 240rpx;
+  margin-right: 40rpx;
+}
+
+.song-menu-cover .content .introdution {
+  width: 300rpx;
+}
+
+.song-menu-cover .introdution .name {
+  text-overflow: -o-ellipsis-lastline;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.song-menu-cover .introdution .article {
+  padding-top: 35rpx;
+  padding-bottom: 25rpx;
+  display: flex;
+  align-items: center;
+}
+
+.song-menu-cover .introdution .avatar{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  margin-right: 10rpx;
+}
+
+.song-menu-cover .introdution .ar_name {
+  height: 50rpx;
+  font-size: 25rpx;
+  line-height: 50rpx;
+}
+
+.song-menu-cover .introdution .description {
+  font-size: 25rpx;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
