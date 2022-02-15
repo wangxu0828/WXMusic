@@ -24,6 +24,7 @@ function formatTime(time) {
   return addZero(minute)+'分'+addZero(second)+'秒'
 }
 
+
 module.exports = {
   formatPlayCount: formatPlayCount,
   formatTime:formatTime

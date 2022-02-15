@@ -6,6 +6,7 @@
   "disableScroll": false,
   "usingComponents": {
     "van-search": "@vant/weapp/search/index",
-    "area-header": "../../component/area-header/index"
+    "area-header": "../../component/area-header/index",
+    "music-item-v2": "../../component/music-item-v2/index"
   }
 }

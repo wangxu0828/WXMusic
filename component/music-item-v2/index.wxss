@@ -11,16 +11,16 @@ page {
 }
 
 .music-item-v2 .index {
-  font-size: 30rpx;
+  font-size: 35rpx;
   font-weight: 520;
   height: 100rpx;
   line-height: 100rpx;
-  margin-left: 20rpx;
-  margin-right: 20rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
 }
 
 .music-item-v2 .content {
-  font-size: 32rpx;
+  font-size: 35rpx;
 }
 
 .music-item-v2 .content .name {
@@ -35,7 +35,18 @@ page {
 
 .music-item-v2 .content text {
   display: inline-block;
-  font-size: 25rpx;
-  color: #ccc;
+  font-size: 30rpx;
+  color: #333;
   transform: translateY(-3rpx);
+}
+
+.sourse {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.dots {
+  margin-left: 10rpx;
+  margin-right: 10rpx;
 }

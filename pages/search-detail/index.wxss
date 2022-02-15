@@ -46,3 +46,10 @@ page {
 
 .search-suggest .suggest-item .name{
 }
+
+.match {
+  font-size: 40rpx;
+  font-weight: 600;
+
+  margin-bottom: 40rpx;
+}

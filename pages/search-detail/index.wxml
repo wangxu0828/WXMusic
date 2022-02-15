@@ -2,30 +2,48 @@
 <view class="search">
   <van-search
     shape="round"
-    background="#ccc"
+    background="#f7f7f7"
     placeholder="请输入关键词"
     bind:change="handleInput"
+    bind:search="handleSearchAction"
+    value='{{keyword}}'
+    show-action="{{keyword}}"
   ></van-search>
 </view>
 
 <!-- 热门搜索 -->
-<view class="hot-search"  wx:if="{{!keyword && allMatchSuggest.length === 0}}">
+<view class="hot-search"  wx:if="{{!keyword && allMatchSuggest.length === 0 && songsList.length === 0}}">
   <area-header title="热门搜索" showRight="{{false}}"></area-header>
   <view class="keywords">
     <block wx:for="{{keyWords}}" wx:key="first">
-      <text class="keyWord">{{item.first}}</text>
+
+      <text class="keyWord" data-forword="{{item.first}}" bind:tap="handleSearchActionByKeyword">{{item.first}}</text>
+
     </block>
   </view>
 </view>
 
 <!-- 搜索建议 -->
-<view class="search-suggest" wx:if="{{keyword && allMatchSuggest.length !== 0}}">
-  <!-- 标语 -->
+<view class="search-suggest" wx:if="{{keyword && allMatchSuggest.length !== 0 && songsList.length === 0}}">
   <view class="title">搜索"{{keyword}}"</view>
   <block wx:for="{{allMatchSuggest}}" wx:key="keyWord">
-    <view class="suggest-item">
+
+    <view class="suggest-item" bind:tap="handleSearchActionByKeyword" 
+      data-forword="{{item.keyword}}">
       <image class="search-icon" src="../../assets/images/icons/search_icon.png" mode="widthFix"></image>
-      <text class="name">{{item.keyword}}</text>
+      <rich-text nodes="{{searchResultNodes[index]}}"></rich-text>
     </view>
+    
+  </block>
+</view>
+
+<!-- 当搜索不到结果时 -->
+<view wx:if="{{allMatchSuggest.length === 0 && !!keyword && songsList.length === 0}}">搜索不到结果</view>
+
+<!-- 搜索的歌曲列表 -->
+<view class="song-list-item" wx:if="{{keyWords && songsList.length !== 0}}">
+  <view class="match">匹配到</view>
+  <block wx:for="{{songsList}}" wx:key="id">
+    <music-item-v2 item="{{item}}" index="{{index+1}}"></music-item-v2>
   </block>
 </view>

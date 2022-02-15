@@ -19,3 +19,10 @@ export const getSearchSuggest = (keywords) => {
     }
   )
 }
+
+// 根据关键字搜索歌曲结果
+export const getSearchResultByKeyword = (keywords) => {
+  return wxRequest.get("/search", {
+    keywords
+  })
+}
