@@ -1,2 +1,31 @@
+<!-- 搜索框开发 -->
+<view class="search">
+  <van-search
+    shape="round"
+    background="#ccc"
+    placeholder="请输入关键词"
+    bind:change="handleInput"
+  ></van-search>
+</view>
 
+<!-- 热门搜索 -->
+<view class="hot-search"  wx:if="{{!keyword && allMatchSuggest.length === 0}}">
+  <area-header title="热门搜索" showRight="{{false}}"></area-header>
+  <view class="keywords">
+    <block wx:for="{{keyWords}}" wx:key="first">
+      <text class="keyWord">{{item.first}}</text>
+    </block>
+  </view>
+</view>
 
+<!-- 搜索建议 -->
+<view class="search-suggest" wx:if="{{keyword && allMatchSuggest.length !== 0}}">
+  <!-- 标语 -->
+  <view class="title">搜索"{{keyword}}"</view>
+  <block wx:for="{{allMatchSuggest}}" wx:key="keyWord">
+    <view class="suggest-item">
+      <image class="search-icon" src="../../assets/images/icons/search_icon.png" mode="widthFix"></image>
+      <text class="name">{{item.keyword}}</text>
+    </view>
+  </block>
+</view>

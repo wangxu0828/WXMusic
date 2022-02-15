@@ -41,6 +41,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
+    if(!this.data.rankingCategoty) return
     musicRankingStore.offState(this.data.rankingCategoty, this.getPageData)
   },
 

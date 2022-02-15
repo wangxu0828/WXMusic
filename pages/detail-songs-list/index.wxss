@@ -77,3 +77,28 @@
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+
+.song-menu-cover .bottom  {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 60rpx;
+}
+
+.song-menu-cover .like {
+  display: flex;
+  align-items: center;
+}
+
+.song-menu-cover .share {
+  display: flex;
+  align-items: center;
+}
+
+.song-menu-cover .like .like-icon{
+  width: 50rpx;
+}
+
+.song-menu-cover .share .share-icon{
+  width: 50rpx;
+}

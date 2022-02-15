@@ -1,3 +1,4 @@
+<wxs src="../../utils/format.wxs" module="format"></wxs>
 <!-- 名字,rank独有 -->
 <view class="name" wx:if="{{!songMenuId}}"> 
   <area-header title="{{songListInfo.name}}" showRight="{{false}}"></area-header>
@@ -18,6 +19,16 @@
         <view class="description">
           {{songListInfo.description}}
         </view>
+      </view>
+    </view>
+    <view class="bottom">
+      <view class="like">
+        <image class="like-icon" src="../../assets/images/icons/favor_icon.png" mode="widthFix"></image>
+        <text>{{format.formatPlayCount(songListInfo.subscribedCount)}}</text>
+      </view>
+      <view class="share">
+        <image class="share-icon" src="../../assets/images/icons/share_icon.png" mode="widthFix"></image>
+        <text>分享</text>
       </view>
     </view>
   </view>

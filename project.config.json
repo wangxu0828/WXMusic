@@ -42,7 +42,7 @@
     "ignoreUploadUnusedFiles": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.19.6",
+  "libVersion": "2.13.2",
   "appid": "wx377d043c3a0bc432",
   "projectname": "WXMusic",
   "debugOptions": {
@@ -63,20 +63,14 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/home-video/index",
-          "pathName": "pages/home-video/index",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "pages/video-detail/index",
           "pathName": "pages/video-detail/index",
           "query": "id=14493007",
           "scene": null
         },
         {
-          "name": "pages/detail-songs-list/index",
-          "pathName": "pages/detail-songs-list/index",
+          "name": "pages/search-detail/index",
+          "pathName": "pages/search-detail/index",
           "query": "id=14493007",
           "scene": null
         }

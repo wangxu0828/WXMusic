@@ -4,5 +4,8 @@
   "enablePullDownRefresh": false,
   "onReachBottomDistance": 50,
   "disableScroll": false,
-  "usingComponents": {}
+  "usingComponents": {
+    "van-search": "@vant/weapp/search/index",
+    "area-header": "../../component/area-header/index"
+  }
 }
