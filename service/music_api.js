@@ -50,3 +50,10 @@ export const getSongDetailById = (ids) => {
     ids
   })
 }
+
+// 获取歌词信息
+export const getSongLyricById = (id) => {
+  return wxRequest.get('/lyric', {
+    id
+  })
+}

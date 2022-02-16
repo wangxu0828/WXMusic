@@ -21,7 +21,7 @@
       <view class="article">{{songDetail.ar[0].name}}</view>
       <view class="sourse">{{songDetail.alia[0]}}</view>
       <view class="lyrics" wx:if="{{HWProportion>=2}}">
-        我是歌词
+        {{currentLyric}}
       </view>
       <div class="slider">
         <slider class="slider-item" block-size="{{15}}" bindchange="handlesliderChange" bindchanging="handlesliderChangeing" value="{{sliderValue}}"/>

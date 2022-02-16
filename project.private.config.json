@@ -34,6 +34,13 @@
           "name": "",
           "pathName": "pages/detail-songs-list/index",
           "query": "type=ranking&categoty=musicUpRanking",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/music-player/index",
+          "query": "id=441491828",
           "scene": null,
           "launchMode": "default"
         }

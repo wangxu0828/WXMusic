@@ -1,7 +1,8 @@
 // pages/music-player/index.js
 
-const { getSongDetailById } = require("../../service/music_api")
+const { getSongDetailById, getSongLyricById } = require("../../service/music_api")
 import { innerAudioContext } from "../../store/audio-store.js";
+import { handleLyric } from "../../utils/handleLyric.js";
 Page({
 
   /**
@@ -20,7 +21,9 @@ Page({
     currentTime:0,
     // 正在拖拽slider
     sliderChangeing:false,
-    sliderValue:0
+    sliderValue:0,
+    LyricResultArr:[],
+    currentLyric:''
   },
 
   /**
@@ -57,6 +60,20 @@ Page({
           {currentTime,sliderValue}
         )
       }
+      for(let i = 0; i<this.data.LyricResultArr.length; i++) {
+        if((Object.keys(this.data.LyricResultArr[i])[0] - 0)>currentTime) {
+         const currentLyric =  Object.values(this.data.LyricResultArr[i-1])[0]
+          this.setData(
+            {currentLyric}
+          )
+          break
+        }  
+      }
+      // this.data.LyricResultArr.forEach(item => {
+        // console.log(Object.keys(item)[0]);
+        
+        // continue
+      // })
     })
   },
 
@@ -73,7 +90,6 @@ Page({
         {currentTime:time, sliderValue:e.detail.value}
       )
     }
-    console.log(this.data.currentTime, this.data.sliderValue);
   },
 
 
@@ -93,6 +109,13 @@ Page({
       })
       innerAudioContext.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`
       this.ListenMusicPlay()
+    })
+
+    // 获取歌词信息
+    getSongLyricById(id).then(res => {
+
+     const LyricResultArr =  handleLyric(res.lrc.lyric)
+     this.setData({LyricResultArr})
     })
   },
 
