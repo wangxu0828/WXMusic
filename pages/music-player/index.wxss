@@ -2,6 +2,7 @@ page {
   color: #fff;
 }
 
+
 .background_image,  .mask {
   position: fixed;
   left: 0;

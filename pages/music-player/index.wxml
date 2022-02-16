@@ -1,9 +1,9 @@
+  <wxs src="../../utils/format.wxs" module="format"></wxs>
   <!-- 背景 -->
   <image src="{{songDetail.al.picUrl}}" class="background_image" mode="aspectFill"></image>
 
   <view class="mask"></view>
 
-  <!-- navbar -->
   <nav-bar>
     <view slot="slot-center">
       <view class="slot-center">
@@ -14,21 +14,20 @@
     </view>
   </nav-bar>
 
-  <!-- content -->
   <swiper class="content" style="height:{{contentHeight}}px" bindchange="handleMusicPageChange" current="{{0}}">
     <swiper-item class="misic-page">
       <image class="cover_image" class="content-image" src="{{songDetail.al.picUrl}}" mode="aspectFill"></image>
       <view class="name">{{songDetail.name}}</view>
       <view class="article">{{songDetail.ar[0].name}}</view>
       <view class="sourse">{{songDetail.alia[0]}}</view>
-      <view class="lyrics">
+      <view class="lyrics" wx:if="{{HWProportion>=2}}">
         我是歌词
       </view>
       <div class="slider">
-        <slider class="slider-item" block-size="{{15}}"/>
+        <slider class="slider-item" block-size="{{15}}" bindchange="handlesliderChange" bindchanging="handlesliderChangeing" value="{{sliderValue}}"/>
         <div class="time">
-          <text class="remain">10:00</text>
-          <text class="all">10:00</text>
+          <text class="remain">{{format.formatTime(currentTime)}}</text>
+          <text class="all">{{format.formatTime(duration)}}</text>
         </div>
       </div>
       <view class="control">

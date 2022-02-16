@@ -1,4 +1,9 @@
 /* base-ui/nav-bar/index.wxss */
+
+.status {
+  color: #fff;
+}
+
 .nav-bar {
   display: flex;
   justify-content: space-between;

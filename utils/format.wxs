@@ -24,6 +24,17 @@ function formatTime(time) {
   return addZero(minute)+'分'+addZero(second)+'秒'
 }
 
+function formatTime(num) {
+  var minute = (num / 1000 / 60) | 0
+  if(minute.toString().length === 1) {
+    minute = 0 + minute.toString()
+  }
+  var second = ((num  / 1000) % 60) | 0
+  if(second.toString().length === 1) {
+    second = 0 + second.toString()
+  }
+  return minute + ':' + second
+}
 
 module.exports = {
   formatPlayCount: formatPlayCount,
