@@ -1,1 +1,109 @@
-/* pages/music-player/index.wxss */
+page {
+  color: #fff;
+}
+
+.background_image,  .mask {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.mask {
+  background-color: rgba(0,0,0,.5);
+  backdrop-filter: blur(30px);
+}
+
+.slot-center {
+  display: flex;
+  margin-right: 80rpx;
+  height: 44px;
+  line-height: 44px;
+}
+
+.slot-center .divider {
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+
+.active {
+  color: #999;
+}
+
+.content {
+  box-sizing: border-box;
+  width: 750rpx;
+  padding: 50rpx 50rpx;
+}
+
+.misic-page {
+  display: flex;
+  flex-direction: column;
+} 
+
+.content-image {
+  flex: 5;
+  width: 100%;
+}
+
+.content .name {
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  font-size: 50rpx;
+  font-weight: 600;
+}
+
+.content .article {
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  font-size: 30rpx;
+}
+
+.content .sourse {
+  padding-top: 10rpx;
+  padding-bottom: 10rpx;
+  font-size: 30rpx;
+}
+
+.content .slider {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 50rpx;
+}
+
+.content .slider .time{
+  display: flex;
+  justify-content: space-between;
+}
+
+.slider .time .remain, .slider .time .all {
+  font-size: 30rpx;
+}
+
+.content .lyrics {
+  font-size: 40rpx;
+  flex: 1;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.control {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 20rpx;
+}
+
+.order, .prev, .pause, .next, .resume {
+  width: 80rpx;
+}
+
+.pause {
+  width: 100rpx;
+}

@@ -1,2 +1,45 @@
-<!--pages/music-player/index.wxml-->
-<text>pages/music-player/index.wxml</text>
+  <!-- 背景 -->
+  <image src="{{songDetail.al.picUrl}}" class="background_image" mode="aspectFill"></image>
+
+  <view class="mask"></view>
+
+  <!-- navbar -->
+  <nav-bar>
+    <view slot="slot-center">
+      <view class="slot-center">
+        <view class="{{currentPage === 1 ? 'active' : ''}}">歌曲</view>
+        <div class="divider">|</div>
+        <view class="{{currentPage === 0 ? 'active' : ''}}">歌词</view>
+      </view>
+    </view>
+  </nav-bar>
+
+  <!-- content -->
+  <swiper class="content" style="height:{{contentHeight}}px" bindchange="handleMusicPageChange" current="{{0}}">
+    <swiper-item class="misic-page">
+      <image class="cover_image" class="content-image" src="{{songDetail.al.picUrl}}" mode="aspectFill"></image>
+      <view class="name">{{songDetail.name}}</view>
+      <view class="article">{{songDetail.ar[0].name}}</view>
+      <view class="sourse">{{songDetail.alia[0]}}</view>
+      <view class="lyrics">
+        我是歌词
+      </view>
+      <div class="slider">
+        <slider class="slider-item" block-size="{{15}}"/>
+        <div class="time">
+          <text class="remain">10:00</text>
+          <text class="all">10:00</text>
+        </div>
+      </div>
+      <view class="control">
+        <image src="../../assets/images/player/play_order.png" mode="widthFix" class="order"></image>
+        <image src="../../assets/images/player/play_prev.png" mode="widthFix" class="prev"></image>
+        <image src="../../assets/images/player/play_pause.png" mode="widthFix" class="pause"></image>
+        <image src="../../assets/images/player/play_next.png" mode="widthFix" class="next"></image>
+        <image src="../../assets/images/player/play_music.png" mode="widthFix" class="resume"></image>
+      </view>
+    </swiper-item>
+    <swiper-item>
+
+    </swiper-item>
+  </swiper>

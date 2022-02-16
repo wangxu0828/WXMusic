@@ -1,6 +1,5 @@
 import { getKeywordsList, getSearchResultByKeyword, getSearchSuggest } from "../../service/search_api"
 import debounce from '../../utils/debounce.js'
-
 const debounceGetSearchSuggest = debounce(getSearchSuggest, 300)
 
 const pageOptions = {
@@ -36,6 +35,7 @@ const pageOptions = {
         songsList:[],
         searchValue:''
       })
+      debounceGetSearchSuggest.cancel()
       return
     }
     // 发送请求
@@ -50,11 +50,11 @@ const pageOptions = {
       return
     }
     // 防止请求数据异步发送导致搜索数组一直不为空
-    if(!this.data.keyword){
-      this.setData({
-        allMatchSuggest:[]
-      })
-    }
+    // if(!this.data.keyword){
+    //   this.setData({
+    //     allMatchSuggest:[]
+    //   })
+    // }
 
     this.getRichTextNodes()
 

@@ -43,3 +43,10 @@ export const getSongMenu = (id) => {
     id
   })
 }
+
+// 获取歌曲详情
+export const getSongDetailById = (ids) => {
+  return wxRequest.get('/song/detail',{
+    ids
+  })
+}

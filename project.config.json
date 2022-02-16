@@ -42,7 +42,7 @@
     "ignoreUploadUnusedFiles": true
   },
   "compileType": "miniprogram",
-  "libVersion": "2.19.6",
+  "libVersion": "2.21.3",
   "appid": "wx377d043c3a0bc432",
   "projectname": "WXMusic",
   "debugOptions": {
@@ -72,6 +72,12 @@
           "name": "pages/search-detail/index",
           "pathName": "pages/search-detail/index",
           "query": "id=14493007",
+          "scene": null
+        },
+        {
+          "name": "pages/music-player/index",
+          "pathName": "pages/music-player/index",
+          "query": "id=1901371647",
           "scene": null
         }
       ]

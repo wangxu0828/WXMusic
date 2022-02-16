@@ -1,0 +1,15 @@
+<view class="status" style="height:{{statusBarHeight}}px"></view>
+
+<view class="nav-bar">
+  <view class="left">
+    <view class="slot-left">
+      <slot name="slot-left"></slot>
+    </view>
+    <image class="default-left" src="../../assets/images/icons/arrow-left.png" mode="widthFix"></image>
+  </view>
+  <view class="center">
+    <slot name="slot-center"></slot>
+    <view class="default-center">{{title}}</view>
+  </view>
+  <view class="right"></view>
+</view>

@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "navigationStyle":"custom",
+  "usingComponents": {
+    "nav-bar": "../../base-ui/nav-bar/index"
+  }
 }

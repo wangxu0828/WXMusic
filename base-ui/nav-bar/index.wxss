@@ -1,0 +1,20 @@
+/* base-ui/nav-bar/index.wxss */
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.left {
+  padding-left: 30rpx;
+} 
+
+.default-left{
+  display: none;
+  width: 50rpx;
+}
+
+.slot-left:empty + .default-left {
+  display: block;
+}
+
