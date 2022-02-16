@@ -22,7 +22,6 @@ page {
   transform: translateY(0);
 }
 
-.swiper-item {}
 
 .swiper-item .image-item {
   width: 100%;

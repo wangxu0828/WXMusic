@@ -41,6 +41,13 @@
           "name": "",
           "pathName": "pages/music-player/index",
           "query": "id=441491828",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "",
+          "pathName": "pages/search-detail/index",
+          "query": "",
           "scene": null,
           "launchMode": "default"
         }

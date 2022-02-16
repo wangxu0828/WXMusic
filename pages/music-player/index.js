@@ -23,7 +23,8 @@ Page({
     sliderChangeing:false,
     sliderValue:0,
     LyricResultArr:[],
-    currentLyric:''
+    currentLyric:'',
+    currentLyricIndex:1
   },
 
   /**
@@ -61,10 +62,14 @@ Page({
         )
       }
       for(let i = 0; i<this.data.LyricResultArr.length; i++) {
+        
         if((Object.keys(this.data.LyricResultArr[i])[0] - 0)>currentTime) {
          const currentLyric =  Object.values(this.data.LyricResultArr[i-1])[0]
+         
+         if(currentLyric === Object.values(this.data.LyricResultArr[this.data.currentLyricIndex - 1])[0]) return
+         console.log(currentLyric);
           this.setData(
-            {currentLyric}
+            {currentLyric, currentLyricIndex:i}
           )
           break
         }  
