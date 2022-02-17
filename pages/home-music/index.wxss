@@ -26,3 +26,45 @@ page {
 .swiper-item .image-item {
   width: 100%;
 }
+
+.play-control {
+  position: fixed;
+  left: 0rpx;
+  bottom: 0;
+  width: 750rpx;
+
+}
+
+.play-control .ablum {
+  position: relative;
+  width: 750rpx;
+  height: 70rpx;
+  width: 100%;
+  box-shadow: 0 -3rpx 1rpx rgba(0, 0, 0, .1);
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+}
+
+.play-control .cover_image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  position: relative;
+  top: -20rpx;
+  margin-left: 20rpx;
+}
+.play-control .name {
+  font-size: 30rpx;
+  margin-left: 20rpx;
+}
+.play-control .right, .left {
+  display: flex;
+  align-items: center;
+
+}
+.play-control .control-icon {
+  width: 60rpx;
+  height: 60rpx;
+  margin-right: 20rpx;
+}

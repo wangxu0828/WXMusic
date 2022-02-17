@@ -37,6 +37,6 @@
 <!-- content -->
 <view>
   <block wx:for="{{songListInfo.tracks}}" wx:key="id">
-    <music-item-v2 item="{{item}}" index="{{index+1}}"></music-item-v2>
+    <music-item-v2 item="{{item}}" index="{{index+1}}" bind:tap="handleClickStorage" data-index="{{index}}"></music-item-v2>
   </block>
 </view>

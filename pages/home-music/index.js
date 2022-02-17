@@ -1,7 +1,7 @@
 import { getBannerList } from '../../service/music_api.js'
 import throttle from '../../utils/throttle'
 
-import { musicRankingStore, rankingMusic } from '../../store/index.js' 
+import { audioStroe, musicRankingStore, rankingMusic } from '../../store/index.js' 
 
 const pageOptions = {
   // 页面数据
@@ -11,11 +11,22 @@ const pageOptions = {
     musicRankingListTopSix:[],
     musicHotMenuListTopSix:[],
     musicRecommandMenuListTopSix:[],
-    rankingMusic:{0:{}, 2:{}, 3:{}}
+    rankingMusic:{0:{}, 2:{}, 3:{}},
+    isplaying: false,
+    songDetail:{}
   },
   // 页面载入时
   onLoad: function () {
     this.getPageData()
+
+    audioStroe.onState('playing', (res) => {
+      this.setData({isplaying:res})
+    })
+
+    audioStroe.onState('songDetail', (res) => {
+      console.log(res);
+      this.setData({songDetail:res})
+    })
   },
   isFirstOnShow: true, // 是否为首次执行onShow
   handleSearchClick: function () {
@@ -114,6 +125,11 @@ const pageOptions = {
       })
     }
   },
+
+  handleClickStorage(e) {
+    audioStroe.setState('playListSongs', this.data.musicRankingListTopSix)
+    audioStroe.setState('playListIndex', e.currentTarget.dataset.index)
+  }
 }
 
 Page(pageOptions)

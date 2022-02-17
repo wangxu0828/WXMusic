@@ -1,4 +1,6 @@
 import { audioStroe,innerAudioContext  } from "../../store/index.js";
+const playModeContant = ['order', 'repeat', 'random']
+
 Page({
 
   /**
@@ -22,7 +24,8 @@ Page({
     currentLyric:'',
     currentLyricIndex:1,
     // 是否正在播放音乐
-    playing:true
+    playing: true,
+    playMode:'order'
   },
 
   /**
@@ -88,7 +91,7 @@ Page({
       
     })
     
-    audioStroe.onStates(['currentTime',  'currentLyric', 'currentLyricIndex', 'playing'], ({currentTime, currentLyric, currentLyricIndex, playing}) => {
+    audioStroe.onStates(['currentTime',  'currentLyric', 'currentLyricIndex'], ({currentTime, currentLyric, currentLyricIndex}) => {
       if(!this.data.sliderChangeing){
         if(currentTime) {
           this.setData({currentTime})
@@ -100,16 +103,30 @@ Page({
       }
       if(currentLyric) this.setData({currentLyric})
       if(currentLyricIndex) this.setData({currentLyricIndex})
-      if(playing) {
-        console.log(playing);
-        this.setData({playing})
-      }
     })
 
+    audioStroe.onState('playing', (res) => {
+      this.setData({playing:res})
+    })
+
+    audioStroe.onState('playModeIndex', (res) => {
+      console.log(res);
+      this.setData({playMode:playModeContant[res]})
+    })
   },
 
   handleChangePlayingClick: function() {
-    audioStroe.dispatch('changeMusicPlaying', !this.data.playing)
-  }
+    console.log(this.data.playing);
+    audioStroe.dispatch('changeMusicPlaying')
+  },
 
+  handleChangePlayModeClick: function() {
+    audioStroe.dispatch('handleChangePlayModeClick')
+  },
+
+  handleChangeMusicClick: function(e) {
+    const btn = e.currentTarget.dataset.btn
+    audioStroe.dispatch('handleChangeMusicClick', {btn})
+    this.setData({currentLyric:''})
+  }
 })

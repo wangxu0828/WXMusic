@@ -31,10 +31,10 @@
         </div>
       </div>
       <view class="control">
-        <image src="../../assets/images/player/play_order.png" mode="widthFix" class="order"></image>
-        <image src="../../assets/images/player/play_prev.png" mode="widthFix" class="prev"></image>
-        <image src="../../assets/images/player/play_{{playing ? 'pause' : 'resume' }}.png" mode="widthFix" class="pause" bindtap="handleChangePlayingClick"></image>
-        <image src="../../assets/images/player/play_next.png" mode="widthFix" class="next"></image>
+        <image src="../../assets/images/player/play_{{playMode}}.png" mode="widthFix" class="order" bindtap="handleChangePlayModeClick"></image>
+        <image src="../../assets/images/player/play_prev.png" mode="widthFix" class="prev" bind:tap="handleChangeMusicClick" data-btn="prev"></image>
+        <image src="../../assets/images/player/play_{{playing ? 'pause' : 'resume' }}.png" mode="widthFix" class="pause" bindtap="handleChangePlayingClick" ></image>
+        <image src="../../assets/images/player/play_next.png" mode="widthFix" class="next" bind:tap="handleChangeMusicClick" data-btn="next"></image>
         <image src="../../assets/images/player/play_music.png" mode="widthFix" class="resume"></image>
       </view>
     </swiper-item>

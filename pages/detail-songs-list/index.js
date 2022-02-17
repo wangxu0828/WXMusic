@@ -1,5 +1,5 @@
 import { getSongMenu } from "../../service/music_api.js"
-import { musicRankingStore } from "../../store/index.js"
+import { audioStroe, musicRankingStore } from "../../store/index.js"
 
 // pages/detail-songs-list/index.js
 Page({
@@ -48,5 +48,10 @@ Page({
     this.setData({
       songListInfo:res
     })
+  },
+
+  handleClickStorage(e) {
+    audioStroe.setState('playListSongs', this.data.songListInfo.tracks)
+    audioStroe.setState('playListIndex', e.currentTarget.dataset.index)
   }
 })
