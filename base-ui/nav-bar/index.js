@@ -24,7 +24,9 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    hanleLeftClick: function() {
+      this.triggerEvent('hanleLeftClick')
+    }
   },
   lifetimes:{
     ready: function() {

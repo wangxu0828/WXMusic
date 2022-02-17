@@ -1,8 +1,4 @@
-// pages/music-player/index.js
-
-const { getSongDetailById, getSongLyricById } = require("../../service/music_api")
-import { innerAudioContext } from "../../store/audio-store.js";
-import { handleLyric } from "../../utils/handleLyric.js";
+import { audioStroe,innerAudioContext  } from "../../store/index.js";
 Page({
 
   /**
@@ -24,14 +20,15 @@ Page({
     sliderValue:0,
     LyricResultArr:[],
     currentLyric:'',
-    currentLyricIndex:1
+    currentLyricIndex:1,
+    // 是否正在播放音乐
+    playing:true
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getPageData(options.id)
     
     const contentHeight = getApp().globalData.screenHeight - 44 - getApp().globalData.statusBarHeight
 
@@ -43,43 +40,7 @@ Page({
       contentHeight,
       HWProportion,
     })
-  },
-
-  // 监听歌曲时间
-  ListenMusicPlay: function() {
-    innerAudioContext.onCanplay(() => {
-      if(!this.data.sliderChangeing) {
-        innerAudioContext.play()
-      }
-    })
-    innerAudioContext.onTimeUpdate(() => {
-      const time = innerAudioContext.currentTime
-      const currentTime = time * 1000
-      const sliderValue = ((currentTime/this.data.duration * 100) | 0)
-      if(!this.data.sliderChangeing) {
-        this.setData(
-          {currentTime,sliderValue}
-        )
-      }
-      for(let i = 0; i<this.data.LyricResultArr.length; i++) {
-        
-        if((Object.keys(this.data.LyricResultArr[i])[0] - 0)>currentTime) {
-         const currentLyric =  Object.values(this.data.LyricResultArr[i-1])[0]
-         
-         if(currentLyric === Object.values(this.data.LyricResultArr[this.data.currentLyricIndex - 1])[0]) return
-         console.log(currentLyric);
-          this.setData(
-            {currentLyric, currentLyricIndex:i}
-          )
-          break
-        }  
-      }
-      // this.data.LyricResultArr.forEach(item => {
-        // console.log(Object.keys(item)[0]);
-        
-        // continue
-      // })
-    })
+    this.setupPageData(options.id)
   },
 
   // 点击滑动选择器监听
@@ -99,34 +60,56 @@ Page({
 
 
   handlesliderChangeing: function(e) {
+    const time = this.data.duration*(e.detail.value/100)
     this.setData({
-      sliderChangeing:true
+      sliderChangeing:true,
+      currentTime:time
     })
 
-  },
-  // 发送请求
-  getPageData: function(id) {
-    getSongDetailById(id).then(res => {
-      const duration = res.songs[0].dt
-      this.setData({
-        songDetail:res.songs[0],
-        duration
-      })
-      innerAudioContext.src = `https://music.163.com/song/media/outer/url?id=${id}.mp3`
-      this.ListenMusicPlay()
-    })
-
-    // 获取歌词信息
-    getSongLyricById(id).then(res => {
-
-     const LyricResultArr =  handleLyric(res.lrc.lyric)
-     this.setData({LyricResultArr})
-    })
   },
 
   handleMusicPageChange:function(event) {
     const currentPage = event.detail.current
     this.setData({currentPage})
+  },
+
+  hanleLeftClick: function() {
+    wx.navigateBack({
+      delta: 1,
+    })
+  },
+
+  setupPageData: function(id) {
+    audioStroe.dispatch('setupPageDataAction', {id})
+    audioStroe.onStates(['songDetail', 'duration', 'LyricResultArr'], ({songDetail, duration, LyricResultArr}) => {
+      if(songDetail) {this.setData({songDetail})}
+      if(duration) {this.setData({duration})}
+      if(LyricResultArr) {this.setData({LyricResultArr})}
+      
+    })
+    
+    audioStroe.onStates(['currentTime',  'currentLyric', 'currentLyricIndex', 'playing'], ({currentTime, currentLyric, currentLyricIndex, playing}) => {
+      if(!this.data.sliderChangeing){
+        if(currentTime) {
+          this.setData({currentTime})
+          if(this.data.duration) {
+            const sliderValue = ((currentTime/this.data.duration * 100) | 0)
+            this.setData({sliderValue})
+          }
+        }
+      }
+      if(currentLyric) this.setData({currentLyric})
+      if(currentLyricIndex) this.setData({currentLyricIndex})
+      if(playing) {
+        console.log(playing);
+        this.setData({playing})
+      }
+    })
+
+  },
+
+  handleChangePlayingClick: function() {
+    audioStroe.dispatch('changeMusicPlaying', !this.data.playing)
   }
 
 })

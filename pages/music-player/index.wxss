@@ -36,12 +36,13 @@ page {
 .content {
   box-sizing: border-box;
   width: 750rpx;
-  padding: 50rpx 50rpx;
 }
 
 .misic-page {
   display: flex;
   flex-direction: column;
+  padding: 0rpx 50rpx;
+  box-sizing: border-box;
 } 
 
 .content-image {
@@ -72,7 +73,7 @@ page {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  margin-bottom: 50rpx;
+  margin-bottom: 20rpx;
 }
 
 .content .slider .time{
@@ -98,7 +99,7 @@ page {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 20rpx;
+  margin-bottom: 50rpx;
 }
 
 .order, .prev, .pause, .next, .resume {
@@ -107,4 +108,20 @@ page {
 
 .pause {
   width: 100rpx;
+}
+
+.scroll {
+  height: 100%;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+
+.lyric {
+  height: 33px;
+  text-align: center;
+}
+
+.lyric_active {
+  color: pink;
 }

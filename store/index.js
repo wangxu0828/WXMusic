@@ -1,2 +1,2 @@
 export { musicRankingStore, rankingMusic } from './music-ranking'
-export { innerAudioContext } from './audio-store.js'
+export { innerAudioContext, audioStroe } from './audio-store.js'

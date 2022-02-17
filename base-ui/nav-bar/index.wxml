@@ -1,7 +1,7 @@
 <view class="status" style="height:{{statusBarHeight}}px"></view>
 
 <view class="nav-bar">
-  <view class="left">
+  <view class="left"  bindtap="hanleLeftClick">
     <view class="slot-left">
       <slot name="slot-left"></slot>
     </view>
