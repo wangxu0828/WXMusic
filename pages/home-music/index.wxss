@@ -68,3 +68,16 @@ page {
   height: 60rpx;
   margin-right: 20rpx;
 }
+
+@keyframes turnAnimation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.turnAnimation {
+  animation:turnAnimation 2s linear infinite;
+}

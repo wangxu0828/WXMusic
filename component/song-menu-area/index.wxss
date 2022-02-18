@@ -15,3 +15,7 @@
 .song-menu-item:last-of-type {
   margin-right: 20rpx;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}

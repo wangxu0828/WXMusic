@@ -33,11 +33,11 @@
 <view class="play-control">
   <view class="ablum">
     <view class="left">
-    <image src="" class="cover_image" mode="widthFix" src="{{songDetail.al.picUrl}}"></image>
+    <image src="" class="cover_image turnAnimation"  style="animation-play-state:{{isplaying ? 'running' : 'paused'}}" mode="widthFix" src="{{songDetail.al.picUrl}}"></image>
     <view class="name">{{songDetail.name}}</view>
     </view>
     <view class="right">
-      <image class="control-icon" src="../../assets/images/music/{{isplaying ? 'pause' : 'play'}}_icon.png" mode="aspectFit"></image>
+      <image class="control-icon" src="../../assets/images/music/{{isplaying ? 'pause' : 'play'}}_icon.png" mode="aspectFit" bind:tap="handleChangeMusicPlayClick"></image>
       <image class="control-icon" src="../../assets/images/music/playlist_icon.png" mode="aspectFit"></image>
     </view>
   </view>

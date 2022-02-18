@@ -129,6 +129,10 @@ const pageOptions = {
   handleClickStorage(e) {
     audioStroe.setState('playListSongs', this.data.musicRankingListTopSix)
     audioStroe.setState('playListIndex', e.currentTarget.dataset.index)
+  },
+
+  handleChangeMusicPlayClick: function() {
+    audioStroe.dispatch('changeMusicPlaying')
   }
 }
 
