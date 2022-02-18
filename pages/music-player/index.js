@@ -70,7 +70,7 @@ Page({
     })
 
   },
-
+  
   handleMusicPageChange:function(event) {
     const currentPage = event.detail.current
     this.setData({currentPage})

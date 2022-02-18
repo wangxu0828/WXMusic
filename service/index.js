@@ -19,8 +19,8 @@ class WXRequest {
     return this.request(url, 'GET', params)
   }
 
-  post(url, params) {
-    return this.request(url, 'POST', params)
+  post(url, data) {
+    return this.request(url, 'POST', data)
   }
 }
 
