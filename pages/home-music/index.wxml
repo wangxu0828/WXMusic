@@ -29,8 +29,10 @@
   </block>
 </view>
 
+<view class="placeholder" wx:if="{{songDetail.id}}"></view>
+
 <!-- 播放控件 -->
-<view class="play-control">
+<view class="play-control" wx:if="{{songDetail.id}}">
   <view class="ablum">
     <view class="left">
     <image src="" class="cover_image turnAnimation"  style="animation-play-state:{{isplaying ? 'running' : 'paused'}}" mode="widthFix" src="{{songDetail.al.picUrl}}"></image>

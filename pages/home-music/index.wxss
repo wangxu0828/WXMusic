@@ -81,3 +81,7 @@ page {
 .turnAnimation {
   animation:turnAnimation 2s linear infinite;
 }
+
+.placeholder {
+  padding-bottom: 70rpx;
+}
